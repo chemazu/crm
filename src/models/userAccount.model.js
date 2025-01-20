@@ -6,9 +6,10 @@ const userAccountSchema = new mongoose.Schema(
       firstname: { type: String, required: true },
       lastname: { type: String, required: true },
       email: { type: String, required: true, unique: true },
+      password: { type: String, required: true },
       usertype: {
         type: String,
-        enum: ["Admin", "User", "Supervisor"],
+        enum: ["Admin", "User", "Supervisor","SuperAdmin"],
         required: true,
       },
       photo: { type: String }, // URL or base64 string for the photo
@@ -60,5 +61,4 @@ const userAccountSchema = new mongoose.Schema(
 ); // Adds createdAt and updatedAt fields
 
 const UserAccount = mongoose.model("UserAccount", userAccountSchema);
-
-module.exports = UserAccount;
+export default UserAccount;
